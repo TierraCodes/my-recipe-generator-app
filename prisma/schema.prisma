@@ -9,27 +9,41 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
 model Recipe {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String
+  id                   Int                    @id @default(autoincrement())
+  name                 String
+  description          String
+  image                String
+  cookingMethods       CookingMethod[]
+  ingredients          Ingredient[]
+  preparationMethods   PreparationMethod[]
+  equipment            Equipment[]
 }
+
 model CookingMethod {
-  id      Int      @id @default(autoincrement())
-  name    String
-  length  String
+  id       Int                    @id @default(autoincrement())
+  name     String
+  length   String
+  recipes  Recipe[]
 }
+
 model Ingredient {
-  id      Int      @id @default(autoincrement())
-  name    String
-  amount  String
+  id        Int                 @id @default(autoincrement())
+  name      String
+  amount    String
+  recipes   Recipe[]
 }
+
 model PreparationMethod {
-  id      Int      @id @default(autoincrement())
-  name    String
-  length  String
+  id          Int    @id @default(autoincrement())
+  name        String
+  length      String
+  recipes     Recipe[]
 }
+
 model Equipment {
-  id      Int      @id @default(autoincrement())
-  name    String
+  id        Int    @id @default(autoincrement())
+  name      String
+  recipes   Recipe[]
 }

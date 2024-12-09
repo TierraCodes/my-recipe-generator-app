@@ -1,6 +1,19 @@
 const { PrismaClient } = require('@prisma/client')
+// const { init } = require('next/dist/compiled/webpack/webpack')
 const prisma = new PrismaClient()
 
+const initialRecipe = [
+    { 
+        id: 1,
+        name: 'Cookies', 
+        description: 'Moms recipe', 
+        image: 'someUrl', 
+        cookingMethods: {connect:[{id:1},{id:2}]},
+        ingredients: {connect:[{id:1},{id:2},{id:3}]},
+        preparationMethods: {connect:[{id:1}]},
+        equipment: {connect:[{id:2}]}
+    }
+]
 
 const initialCookingMethods = [
     { id: 1,    name: 'sautee',   length: '5 minutes'},
@@ -53,6 +66,13 @@ const seed = async () => {
     for (const equipment of initialEquipment){
         await prisma.equipment.createMany({
             data: equipment,
+        });
+    }
+
+    await prisma.recipe.deleteMany();
+    for (const recipe of initialRecipe){
+        await prisma.recipe.create({
+            data: recipe,
         });
     }
 };
