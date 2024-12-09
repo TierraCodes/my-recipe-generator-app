@@ -7,9 +7,29 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("file:./dev.db")
+  url      = env("DATABASE_URL")
+}
+model Recipe {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
 }
 model CookingMethod {
-  id      String   @id @default(cuid())
+  id      Int      @id @default(autoincrement())
+  name    String
+  length  String
+}
+model Ingredient {
+  id      Int      @id @default(autoincrement())
+  name    String
+  amount  String
+}
+model PreparationMethod {
+  id      Int      @id @default(autoincrement())
+  name    String
+  length  String
+}
+model Equipment {
+  id      Int      @id @default(autoincrement())
   name    String
 }
