@@ -9,9 +9,9 @@ export default function Generate(){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const generatedRecipe = e.target.elements.recipe.value;
+        const generatedRecipe = e.target.elements.recipe;
         setRecipe(generatedRecipe)
-        router.push('./savedRecipes')
+        router.push('/savedRecipes/')
     }
 
     return (
@@ -19,20 +19,20 @@ export default function Generate(){
             <form onSubmit={handleSubmit}>
                 <h1>Create a Recipe!</h1>
                 <div>
-                    <label htmlFor="generatedRecipe">How many steps do you want?</label>
-                    <input type="text" placeholder='3'/>
+                    <label>How many steps do you want?
+                        <input type="text" name="steps" placeholder='3'/></label>
                 </div>
                 <div>
-                    <label htmlFor="name">What should we call it?</label>
-                    <input type="text" placeholder="creation sensation"/>
+                    <label>What should we call it?
+                        <input type="text" name="name" placeholder="creation sensation"/></label>
                 </div>
                 <div>
-                    <label htmlFor="description">How would you describe this dish?</label>
-                    <input type="text" placeholder="the yummiest ever"/>
+                    <label>How would you describe this dish?
+                        <input type="text" name="description" placeholder="the yummiest ever"/></label>
                 </div>
                 <div>
-                    <label htmlFor="image">Upload a picture!</label>
-                    <input type="text" placeholder="pic/url"/>
+                    <label>Upload a picture!
+                        <input type="text" name="image" placeholder="pic/url"/></label>
                 </div>
                 <button type="submit">Save Recipe</button>
             </form>
