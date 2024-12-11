@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: palegoldenrod;
   --foreground: #171717;
 }
 
@@ -14,8 +14,52 @@
   }
 }
 
+.nav-bar {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+.nav-bar button{
+  float: left;
+  overflow: hidden;
+  margin: 0px;
+}
+.nav-bar button:first-child, .nav-bar button:nth-last-child(2){
+  border-right: 0px;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1{
+  font-size: x-large;
+  margin: auto;
+  margin-top: 50px;
+  padding: 30px;
+}
+input{
+  margin: 5px;
+  margin-left: 10px;
+  padding: 3px;
+}
+button{
+  padding: 5px 10px;
+  border: 1.5px solid black;
+  font-weight: bold;
+  background-color: seashell;
+  margin: 20px;
+}
+button:hover{
+  background-color: olivedrab;
+  color: seashell;
+}
+img{
+  width: 200px;
+  border: 2px solid black;
 }

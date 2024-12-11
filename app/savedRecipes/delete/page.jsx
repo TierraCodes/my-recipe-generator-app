@@ -1,4 +1,4 @@
-import deleteRecipe from "@/app/deleteRecipe"
+import deleteRecipe from "@/app/savedRecipes/deleteRecipe"
 
 export default function Recipes(props){
     return(

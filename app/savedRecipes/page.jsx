@@ -1,3 +1,4 @@
+'use client'
 import { useRouter } from "next/navigation"
 
 export default async function SavedRecipes(){
@@ -7,7 +8,8 @@ export default async function SavedRecipes(){
     const recipeList = recipes.map((recipeObject) =>
         <li key={recipeObject.id}>
             {recipeObject.name}
-            
+            <p>{recipeObject.image}</p>
+            <p>{recipeObject.description}</p>
         </li>
     )
     return (

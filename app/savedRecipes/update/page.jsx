@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import updateRecipe from "@/app/updateRecipes";
+import updateRecipe from "@/app/savedRecipes/updateRecipes";
 import Update from './update'
 
 export default async function editRecipes({props}) {
